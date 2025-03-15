@@ -1,10 +1,11 @@
 
 import React, { useEffect, useRef } from 'react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Zap, Wifi, ShieldCheck } from 'lucide-react';
 
 const Hero = () => {
   const backgroundRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const orbitalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,6 +77,36 @@ const Hero = () => {
             >
               Get Involved
             </a>
+          </div>
+        </div>
+        
+        {/* Animated visualization */}
+        <div ref={orbitalRef} className="relative mx-auto mt-16 w-72 h-72 opacity-85 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          {/* Center node */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center z-20 border border-white/20">
+            <div className="w-16 h-16 bg-gradient-to-br from-baobab-green to-baobab-leaf rounded-full flex items-center justify-center shadow-lg">
+              <span className="text-white font-display font-bold text-xl">BG</span>
+            </div>
+          </div>
+          
+          {/* Orbital rings */}
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 border border-baobab-green/20 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-spin-slow"></div>
+          <div className="absolute top-1/2 left-1/2 w-48 h-48 border border-baobab-leaf/20 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-spin-slow" style={{ animationDuration: '15s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-32 h-32 border border-baobab-sand/20 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-spin-slow" style={{ animationDuration: '10s' }}></div>
+          
+          {/* Energy node */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-baobab-green/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md z-10 border border-white/20 animate-orbit" style={{ animationDuration: '20s' }}>
+            <Zap size={20} className="text-white" />
+          </div>
+          
+          {/* Digital node */}
+          <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-baobab-leaf/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md z-10 border border-white/20 animate-orbit" style={{ animationDuration: '15s', animationDelay: '5s' }}>
+            <Wifi size={20} className="text-white" />
+          </div>
+          
+          {/* Conservation node */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-12 h-12 bg-baobab-sand/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md z-10 border border-white/20 animate-orbit" style={{ animationDuration: '25s', animationDelay: '2.5s' }}>
+            <ShieldCheck size={20} className="text-white" />
           </div>
         </div>
         
